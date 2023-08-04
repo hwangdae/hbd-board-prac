@@ -8,7 +8,16 @@ const AuthLayout = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    alert("TODO 요구사항에 맞추어 기능을 완성해주세요.");
+    // alert("TODO 요구사항에 맞추어 기능을 완성해주세요.");
+    const token = localStorage.getItem("token")
+    const email = localStorage.getItem("email")
+
+    console.log(token,email)
+    if(token && email === ""){
+      alert("토큰 또는 이메일이 없습니다. 로그인해주세요.")
+      localStorage.clear()
+      navigate("/auth")
+    }
 
     // TODO: localStorage의 토큰 검색
     // TODO: localStorage의 이메일 검색
@@ -18,7 +27,13 @@ const AuthLayout = () => {
   }, [navigate]);
 
   const handleLogoutButtonClick = () => {
-    alert("TODO 요구사항에 맞추어 기능을 완성해주세요.");
+    // alert("TODO 요구사항에 맞추어 기능을 완성해주세요.");
+    if(window.confirm("로그아웃 하시겠습니까?")){
+      localStorage.removeItem("token")
+      localStorage.removeItem("email")
+      alert("로그아웃이 완료되었습니다")
+      navigate("/auth")
+    }
 
     // TODO: "로그아웃 하시겠습니까?" confirm
     // TODO: yes 선택 시, localStorage의 token과 email 제거

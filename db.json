@@ -39,6 +39,11 @@
       "email": "asdf",
       "password": "123",
       "id": 8
+    },
+    {
+      "email": "11",
+      "password": "11",
+      "id": 9
     }
   ],
   "boards": [
@@ -95,6 +100,36 @@
       "contents": "asdfasdf",
       "isDeleted": false,
       "id": 9
+    },
+    {
+      "email": "11",
+      "contents": "테스트",
+      "isDeleted": false,
+      "id": 14
+    },
+    {
+      "email": "11",
+      "contents": "테스트",
+      "isDeleted": false,
+      "id": 15
+    },
+    {
+      "email": "11",
+      "contents": "테스트 하기",
+      "isDeleted": false,
+      "id": 16
+    },
+    {
+      "email": "11",
+      "contents": "1111",
+      "isDeleted": false,
+      "id": 17
+    },
+    {
+      "email": "asdfasdf@asdf.com",
+      "contents": "가나다",
+      "isDeleted": false,
+      "id": 18
     }
   ]
 }

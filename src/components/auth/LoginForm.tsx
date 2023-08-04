@@ -1,11 +1,34 @@
 import React from "react";
 import { Form, Input, Button } from "antd";
 import styled from "styled-components";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import shortid from "shortid";
 
 const LoginForm: React.FC = () => {
-  const handleLogin = async (values: any) => {
-    alert("TODO 요구사항에 맞추어 기능을 완성해주세요.");
 
+  const navigate = useNavigate()
+  const handleLogin = async (values: any) => {
+
+    // alert("TODO 요구사항에 맞추어 기능을 완성해주세요.");
+
+    try {
+      const data = await axios.get(`${process.env.REACT_APP_SERVER_URL}?email=${values.email}&password=${values.password}`)
+
+
+    if(data.data.length <= 0){
+      alert('실패')
+      return false
+    }else{
+      alert('성공')
+      localStorage.setItem("token",shortid.generate())
+      localStorage.setItem("email",values.email)
+      navigate("/")
+    }
+    } catch (error) {
+      alert('일시적인 오류 발생')
+    }
+    
     // TODO: email과 password를 DB에서 찾아서 로그인 검증
     // TODO: 일치하는 유저가 없는 경우 "일치하는 유저를 찾을 수 없습니다." alert
     // TODO: 네트워크 등 기타 문제인 경우, "일시적인 오류가 발생하였습니다. 고객센터로 연락주세요." alert
